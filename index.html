@@ -1,811 +1,136 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> <!-- Idioma principal del documento -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The English Escape Room</title>
-    <style>
-        :root {
-            --primary-bg: #0d0d0d;
-            --secondary-bg: #1a1a1a;
-            --accent-color: #5c0000;
-            --text-color: #a94442;
-            --light-text-color: #dcdcdc;
-            --correct-color: #3c763d;
-            --incorrect-color: #a94442;
-            --font-title: 'Courier New', Courier, monospace;
-            --font-body: 'Courier New', Courier, monospace;
-        }
+    <meta charset="UTF-8"> <!-- Soporte para caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividad en móviles -->
+    <title>The English Escape Room</title> <!-- Título en pestaña del navegador -->
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background-color: var(--primary-bg);
-            color: var(--light-text-color);
-            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cg fill-rule="evenodd"%3E%3Cg fill="%231a1a1a" fill-opacity="0.4"%3E%3Cpath opacity=".5" d="M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z"/%3E%3Cpath d="M6 5V0h1v5h4V0h1v5h4V0h1v5h4V0h1v5h4V0h1v5h4V0h1v5h4V0h1v5h4V0h1v5h4V0h1v5h4V0h1v5h4V0h1v5h4V0h1v5h4V0h1v5h5v1h-5v4h5v1h-5v4h5v1h-5v4h5v1h-5v4h5v1h-5v4h5v1h-5v4h5v1h-5v4h5v1h-5v4h5v1h-5v4h5v1h-5v4h5v1h-5v4h5v1h-5v4h-1v-4h-4v4h-1v-4h-4v4h-1v-4h-4v4h-1v-4h-4v4h-1v-4h-4v4h-1v-4h-4v4h-1v-4h-4v4h-1v-4h-4v4h-1v-4h-4v4h-1v-4h-4v4H6v-4H0v-1h6V6H0v-1h6V5z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
-            background-attachment: fixed;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 1rem;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .flicker-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.2);
-            animation: flicker 4s infinite alternate;
-            pointer-events: none;
-            z-index: 100;
-        }
-
-        .fog-layer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(13, 13, 13, 0.1) 0%, rgba(13, 13, 13, 0.8) 70%, #0d0d0d 100%);
-            animation: fog 20s linear infinite alternate;
-            pointer-events: none;
-            z-index: 101;
-        }
-
-        .screen-container {
-            width: 100%;
-            max-width: 1200px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .content-box {
-            background-color: rgba(26, 26, 26, 0.7);
-            padding: 2rem 3rem;
-            border-radius: 5px;
-            border: 1px solid var(--accent-color);
-            box-shadow: 0 0 35px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(92, 0, 0, 0.5);
-            text-align: center;
-            backdrop-filter: blur(3px);
-        }
-
-        .game-title {
-            font-family: var(--font-title);
-            font-size: 4rem;
-            color: var(--text-color);
-            letter-spacing: 8px;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 15px var(--text-color), 0 0 5px #ff0000;
-            text-transform: uppercase;
-        }
-
-        .instructions.subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 500px;
-            color: var(--light-text-color);
-        }
-
-        input[type="text"] {
-            width: 100%;
-            max-width: 400px;
-            padding: 0.8rem 1rem;
-            font-family: var(--font-body);
-            font-size: 1.2rem;
-            border-radius: 3px;
-            border: 1px solid var(--text-color);
-            background-color: #111;
-            color: var(--light-text-color);
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        input[type="text"]:focus {
-            outline: none;
-            border-color: #ff4d4d;
-            box-shadow: 0 0 10px rgba(169, 68, 66, 0.7);
-        }
-
-        button {
-            padding: 0.8rem 1.5rem;
-            font-family: var(--font-body);
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 3px;
-            border: 1px solid var(--text-color);
-            background: linear-gradient(rgba(169, 68, 66, 0.3), rgba(169, 68, 66, 0.1));
-            color: var(--text-color);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            text-shadow: 0 0 5px var(--text-color);
-        }
-
-        button:hover {
-            background: linear-gradient(rgba(169, 68, 66, 0.5), rgba(169, 68, 66, 0.3));
-            color: #fff;
-            box-shadow: 0 0 15px rgba(169, 68, 66, 0.6);
-        }
-
-        button:active {
-            transform: scale(0.98);
-        }
-
-        .error-message {
-            color: var(--incorrect-color);
-            margin-top: 1rem;
-            height: 1.2em;
-            text-shadow: 0 0 5px var(--incorrect-color);
-        }
-
-        .input-error {
-            border-color: var(--incorrect-color);
-            animation: shake 0.5s;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        .game-header {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            padding: 0.5rem 2rem;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-bottom: 1px solid var(--accent-color);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            text-shadow: 0 0 5px #000;
-        }
-
-        #game-area {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            width: 100%;
-            flex-grow: 1;
-        }
-
-        #challenge-container {
-            flex-basis: 50%;
-            max-width: 600px;
-        }
-
-        #challenge-question {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--light-text-color);
-            min-height: 3em;
-            line-height: 1.4;
-            text-shadow: 1px 1px 3px #000;
-        }
-
-        #challenge-paragraph {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            background: rgba(0,0,0,0.2);
-            padding: 1rem;
-            border-left: 3px solid var(--accent-color);
-            border-radius: 3px;
-        }
-
-        .button-group {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        #hint-btn {
-            background: linear-gradient(rgba(80, 70, 0, 0.3), rgba(80, 70, 0, 0.1));
-            border-color: #555;
-            color: #aaa;
-        }
-        #hint-btn:hover {
-            color: #fff;
-            border-color: #888;
-            box-shadow: 0 0 15px rgba(200, 180, 0, 0.6);
-        }
-
-        #feedback-message {
-            margin-top: 1rem;
-            font-size: 1.5rem;
-            font-weight: bold;
-            min-height: 1.5em;
-            text-transform: uppercase;
-        }
-
-        .feedback-correct {
-            color: var(--correct-color);
-            animation: glowGreen 1.5s ease-in-out;
-        }
-
-        .feedback-incorrect {
-            color: var(--incorrect-color);
-            animation: glowRed 1.5s ease-in-out;
-        }
-
-        #multiple-choice-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-
-        .choice-btn {
-            width: 100%;
-            padding: 1rem;
-            background-color: rgba(0,0,0,0.2);
-            border: 1px solid #444;
-            color: #ccc;
-            font-size: 1.1rem;
-        }
-        .choice-btn:hover {
-            background-color: rgba(92, 0, 0, 0.3);
-            border-color: var(--text-color);
-        }
-
-
-        /* Door Styling */
-        #door-container {
-            perspective: 1200px;
-            flex-basis: 40%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .door-frame {
-            width: 220px;
-            height: 380px;
-            border: 15px solid #2a1a0a;
-            border-radius: 5px;
-            background: #000;
-            box-shadow: 0 0 30px rgba(0,0,0,0.8), inset 0 0 10px #000;
-            padding: 5px;
-        }
-
-        .door {
-            width: 100%;
-            height: 100%;
-            background-color: #3b2a1a;
-            background-image: linear-gradient(to right, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 85%, rgba(0,0,0,0.4) 100%);
-            position: relative;
-            transform-origin: left;
-            transition: transform 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-            cursor: pointer;
-        }
-
-        .door.open {
-            transform: rotateY(-120deg);
-        }
-
-        .door-handle {
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background-color: #333;
-            border: 2px solid #555;
-            border-radius: 50%;
-            top: 50%;
-            right: 15px;
-            transform: translateY(-50%);
-            box-shadow: 0 0 5px #000;
-        }
-
-        /* End Screen */
-        .congrats-title {
-            font-family: var(--font-title);
-            font-size: 3rem;
-            color: var(--correct-color);
-            text-shadow: 0 0 10px var(--correct-color);
-            text-transform: uppercase;
-        }
-
-        #final-score, #final-time, #high-score {
-            font-size: 1.3rem;
-            margin: 0.5rem 0;
-        }
-
-        #learned-words-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 1.5rem 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        #learned-words-list li {
-            background: var(--accent-color);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 1.1rem;
-        }
-
-        #restart-btn {
-            margin-top: 1.5rem;
-            background: linear-gradient(rgba(60, 118, 61, 0.3), rgba(60, 118, 61, 0.1));
-            border-color: var(--correct-color);
-            color: var(--correct-color);
-        }
-        #restart-btn:hover {
-            color: #fff;
-            box-shadow: 0 0 15px rgba(60, 118, 61, 0.6);
-        }
-        
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-            20%, 40%, 60%, 80% { transform: translateX(5px); }
-        }
-
-        @keyframes flicker {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-            52% { opacity: 0.95; }
-            55% { opacity: 0.85; }
-        }
-
-        @keyframes fog {
-            0% { transform: scale(1.1) translate(0, 0); opacity: 0.7; }
-            50% { transform: scale(1.05) translate(10px, 5px); opacity: 0.8; }
-            100% { transform: scale(1.1) translate(0, 0); opacity: 0.7; }
-        }
-
-        @keyframes glowGreen {
-            0%, 100% { text-shadow: none; }
-            50% { text-shadow: 0 0 20px var(--correct-color), 0 0 10px #fff; }
-        }
-        @keyframes glowRed {
-            0%, 100% { text-shadow: none; }
-            50% { text-shadow: 0 0 20px var(--incorrect-color), 0 0 10px #fff; }
-        }
-
-        @media (max-width: 900px) {
-            #game-area {
-                flex-direction: column-reverse;
-                gap: 2rem;
-            }
-            #challenge-container, #door-container {
-                flex-basis: auto;
-                width: 100%;
-                max-width: 600px;
-            }
-            .game-header {
-                justify-content: space-around;
-                gap: 0.5rem;
-            }
-        }
-        
-        @media (max-width: 600px) {
-            .game-title {
-                font-size: 2.5rem;
-            }
-            .content-box {
-                padding: 1.5rem;
-            }
-            body {
-                font-size: 14px;
-            }
-        }
-
-    </style>
-<link rel="stylesheet" href="/index.css">
+    <!-- Enlace a la hoja de estilos -->
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+    <!-- Capa visual para efecto de niebla -->
     <div class="fog-layer"></div>
+
+    <!-- Capa usada para efecto de parpadeo en pantalla -->
     <div class="flicker-overlay hidden"></div>
 
-    <!-- Start Screen -->
+    <!-- ================================
+         PANTALLA INICIAL
+    ================================== -->
     <div id="start-screen" class="screen-container">
         <div class="content-box">
             <h1 class="game-title">THE ENGLISH ESCAPE ROOM</h1>
+
             <p class="instructions subtitle">
                 Solve the puzzles... or remain trapped forever.
             </p>
+
+            <!-- Entrada del nombre del jugador -->
             <input type="text" id="player-name-input" placeholder="Enter your name, prisoner..." aria-label="Player Name">
+
+            <!-- Botón para iniciar el juego -->
             <button id="start-button">Enter If You Dare</button>
+
+            <!-- Mensaje de error si no escribe su nombre -->
             <p id="name-error" class="error-message"></p>
         </div>
     </div>
 
-    <!-- Game Screen -->
+    <!-- ================================
+         PANTALLA DEL JUEGO
+    ================================== -->
     <div id="game-screen" class="screen-container hidden">
+
+        <!-- Barra superior con info del jugador -->
         <header class="game-header">
-            <div id="player-info">Prisoner: <span id="player-name-display"></span></div>
-            <div id="room-indicator">Room 1/5</div>
-            <div id="score">Score: 0</div>
-            <div id="timer">Time: 00:00</div>
+            <div id="player-info">
+                Prisoner: <span id="player-name-display"></span> <!-- Nombre del jugador -->
+            </div>
+
+            <div id="room-indicator">Room 1/5</div> <!-- Nivel actual -->
+
+            <div id="score">Score: 0</div> <!-- Puntuación -->
+
+            <div id="timer">Time: 00:00</div> <!-- Tiempo transcurrido -->
         </header>
 
         <main id="game-area">
+
+            <!-- Contenedor donde se muestran los desafíos -->
             <div id="challenge-container" class="content-box">
+
                 <div id="challenge-content">
+                    <!-- Pregunta principal -->
                     <h2 id="challenge-question"></h2>
+
+                    <!-- Párrafo oculto (lecturas, textos largos, acertijos, etc.) -->
                     <p id="challenge-paragraph" class="hidden"></p>
+
+                    <!-- Opciones (solo si el reto es de selección múltiple) -->
                     <div id="multiple-choice-options" class="hidden"></div>
                 </div>
+
+                <!-- Campo para respuesta escrita -->
                 <input type="text" id="answer-input" placeholder="Your answer..." aria-label="Answer">
+
+                <!-- Botones principales -->
                 <div class="button-group">
                     <button id="check-answer-btn">Submit Answer</button>
                     <button id="hint-btn">Hint (-50 pts)</button>
                 </div>
+
+                <!-- Mensaje de retroalimentación (correcto/incorrecto) -->
                 <p id="feedback-message"></p>
             </div>
+
+            <!-- Contenedor gráfico de la puerta -->
             <div id="door-container">
                 <div class="door-frame">
+                    <!-- Puerta que se animará al avanzar -->
                     <div id="door" class="door">
-                        <div class="door-handle"></div>
+                        <div class="door-handle"></div> <!-- Manija de la puerta -->
                     </div>
                 </div>
             </div>
+
         </main>
     </div>
 
-    <!-- End Screen -->
+    <!-- ================================
+         PANTALLA FINAL
+    ================================== -->
     <div id="end-screen" class="screen-container hidden">
         <div class="content-box">
             <h2 class="congrats-title">Congratulations! You Have Escaped!</h2>
+
             <p>Your freedom was earned, <span id="final-player-name"></span>. 🎉</p>
+
+            <!-- Datos finales del jugador -->
             <p id="final-score"></p>
             <p id="final-time"></p>
             <p id="high-score"></p>
+
+            <!-- Lista de palabras aprendidas durante el juego -->
             <h3>Words you mastered:</h3>
             <ul id="learned-words-list"></ul>
+
+            <!-- Botón para reiniciar -->
             <button id="restart-btn">Play Again</button>
         </div>
     </div>
 
-    <!-- 
-        NOTE: You need to create a 'sounds' folder and add these audio files.
-        You can find free sound effects online to use.
-    -->
+    <!-- ================================
+         AUDIOS DEL JUEGO
+         (El usuario debe añadir los archivos)
+    ================================== -->
     <audio id="correct-sound" src="sounds/correct.wav" preload="auto"></audio>
     <audio id="incorrect-sound" src="sounds/incorrect.wav" preload="auto"></audio>
     <audio id="door-open-sound" src="sounds/door-creak.wav" preload="auto"></audio>
     <audio id="victory-sound" src="sounds/victory.wav" preload="auto"></audio>
     <audio id="background-music" src="sounds/background.mp3" loop preload="auto"></audio>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- GAME DATA ---
-            const rooms = [
-                {
-                    type: "translate",
-                    question: "Translate the bloody message on the wall: 'Sombra'",
-                    answer: "shadow",
-                    hint: "It follows you but you can never catch it.",
-                },
-                {
-                    type: "jumble",
-                    question: "Unscramble the letters to reveal the haunting sound: T E L S K O N E",
-                    answer: "skeleton",
-                    hint: "It's a framework of bones.",
-                },
-                {
-                    type: "riddle",
-                    question: "I have no voice, but I can tell you stories. I have a spine, but no bones. What am I?",
-                    answer: "book",
-                    hint: "Often found in a library, like this one...",
-                },
-                {
-                    type: "multiple",
-                    question: "Which word describes a place where the dead are buried?",
-                    options: ["Basement", "Attic", "Cemetery", "Dungeon"],
-                    answer: "cemetery",
-                    hint: "It's also known as a graveyard.",
-                },
-                {
-                    type: "findword",
-                    question: "Find the hidden six-letter word in this creepy note:",
-                    paragraph: "The candle flickered, casting long, dancing figures on the wall. The air was frigid, and a sense of dread crept into my heart. I could almost hear a faint, spectral whisper right behind me.",
-                    answer: "spirit",
-                    hint: "It's another word for a ghost or phantom.",
-                }
-            ];
-
-            // --- DOM ELEMENTS ---
-            const startScreen = document.getElementById('start-screen');
-            const gameScreen = document.getElementById('game-screen');
-            const endScreen = document.getElementById('end-screen');
-
-            const fogLayer = document.querySelector('.fog-layer');
-            const flickerOverlay = document.querySelector('.flicker-overlay');
-
-            const startButton = document.getElementById('start-button');
-            const playerNameInput = document.getElementById('player-name-input');
-            const nameError = document.getElementById('name-error');
-            
-            const playerNameDisplay = document.getElementById('player-name-display');
-            const finalPlayerName = document.getElementById('final-player-name');
-            const roomIndicator = document.getElementById('room-indicator');
-            const scoreDisplay = document.getElementById('score');
-            const timerDisplay = document.getElementById('timer');
-            const questionEl = document.getElementById('challenge-question');
-            const paragraphEl = document.getElementById('challenge-paragraph');
-            const multipleChoiceEl = document.getElementById('multiple-choice-options');
-            const answerInput = document.getElementById('answer-input');
-            const checkAnswerBtn = document.getElementById('check-answer-btn');
-            const hintBtn = document.getElementById('hint-btn');
-            const feedbackMessage = document.getElementById('feedback-message');
-            const door = document.getElementById('door');
-            const finalScoreDisplay = document.getElementById('final-score');
-            const finalTimeDisplay = document.getElementById('final-time');
-            const highScoreDisplay = document.getElementById('high-score');
-            const learnedWordsList = document.getElementById('learned-words-list');
-            const restartBtn = document.getElementById('restart-btn');
-
-            const correctSound = document.getElementById('correct-sound');
-            const incorrectSound = document.getElementById('incorrect-sound');
-            const doorOpenSound = document.getElementById('door-open-sound');
-            const victorySound = document.getElementById('victory-sound');
-            const backgroundMusic = document.getElementById('background-music');
-
-            // --- GAME STATE ---
-            let playerName = '';
-            let currentRoomIndex = 0;
-            let score = 0;
-            let learnedWords = [];
-            let hintUsed = false;
-            let timerInterval;
-            let secondsElapsed = 0;
-
-            // --- FUNCTIONS ---
-
-            function playSound(sound) {
-                if(sound) {
-                    sound.currentTime = 0;
-                    sound.play().catch(e => console.error("Audio playback failed:", e));
-                }
-            }
-
-            function startGame() {
-                playerName = localStorage.getItem('escapeRoomPlayerName') || 'Prisoner';
-                playerNameDisplay.textContent = playerName;
-                finalPlayerName.textContent = playerName;
-                currentRoomIndex = 0;
-                score = 0;
-                secondsElapsed = 0;
-                learnedWords = [];
-                updateScore();
-                startTimer();
-                loadRoom(currentRoomIndex);
-                
-                document.body.addEventListener('click', () => {
-                    if (backgroundMusic && backgroundMusic.paused) {
-                        backgroundMusic.volume = 0.1;
-                        backgroundMusic.play().catch(e => console.error("Music could not be played:", e));
-                    }
-                }, { once: true });
-            }
-
-            function loadRoom(index) {
-                if (index >= rooms.length) {
-                    finishGame();
-                    return;
-                }
-
-                const room = rooms[index];
-                questionEl.textContent = room.question;
-                roomIndicator.textContent = `Room ${index + 1}/${rooms.length}`;
-                answerInput.value = '';
-                answerInput.focus();
-                feedbackMessage.textContent = '';
-                feedbackMessage.className = '';
-                door.classList.remove('open');
-                hintBtn.disabled = false;
-                hintUsed = false;
-                
-                answerInput.classList.remove('hidden');
-                paragraphEl.classList.add('hidden');
-                multipleChoiceEl.classList.add('hidden');
-                multipleChoiceEl.innerHTML = '';
-                checkAnswerBtn.classList.remove('hidden');
-
-                if (room.type === 'findword') {
-                    paragraphEl.textContent = room.paragraph;
-                    paragraphEl.classList.remove('hidden');
-                } else if (room.type === 'multiple') {
-                    answerInput.classList.add('hidden');
-                    checkAnswerBtn.classList.add('hidden');
-                    multipleChoiceEl.classList.remove('hidden');
-                    room.options.forEach(option => {
-                        const button = document.createElement('button');
-                        button.textContent = option;
-                        button.classList.add('choice-btn');
-                        button.onclick = () => checkMultipleChoice(option);
-                        multipleChoiceEl.appendChild(button);
-                    });
-                }
-            }
-            
-            function checkAnswer() {
-                const userAnswer = answerInput.value.trim().toLowerCase();
-                if (!userAnswer) return;
-                
-                const correctAnswer = rooms[currentRoomIndex].answer.toLowerCase();
-
-                if (userAnswer === correctAnswer) {
-                    handleCorrectAnswer();
-                } else {
-                    handleIncorrectAnswer();
-                }
-            }
-            
-            function checkMultipleChoice(selectedOption) {
-                const correctAnswer = rooms[currentRoomIndex].answer.toLowerCase();
-                if (selectedOption.toLowerCase() === correctAnswer) {
-                    handleCorrectAnswer();
-                } else {
-                    handleIncorrectAnswer();
-                }
-            }
-
-            function handleCorrectAnswer() {
-                playSound(correctSound);
-                score += hintUsed ? 50 : 100;
-                updateScore();
-                
-                const roomData = rooms[currentRoomIndex];
-                const word = roomData.answer.charAt(0).toUpperCase() + roomData.answer.slice(1);
-                learnedWords.push(word);
-                
-                feedbackMessage.textContent = 'CORRECT!';
-                feedbackMessage.className = 'feedback-correct';
-                
-                answerInput.disabled = true;
-                checkAnswerBtn.disabled = true;
-                hintBtn.disabled = true;
-                document.querySelectorAll('.choice-btn').forEach(btn => btn.disabled = true);
-                
-                setTimeout(() => {
-                    playSound(doorOpenSound);
-                    door.classList.add('open');
-                }, 500);
-                
-                setTimeout(nextRoom, 2500);
-            }
-            
-            function handleIncorrectAnswer() {
-                playSound(incorrectSound);
-                score = Math.max(0, score - 25);
-                updateScore();
-                feedbackMessage.textContent = 'WRONG!';
-                feedbackMessage.className = 'feedback-incorrect';
-                document.getElementById('challenge-container').classList.add('input-error');
-                setTimeout(() => document.getElementById('challenge-container').classList.remove('input-error'), 500);
-            }
-
-            function nextRoom() {
-                currentRoomIndex++;
-                answerInput.disabled = false;
-                checkAnswerBtn.disabled = false;
-                loadRoom(currentRoomIndex);
-            }
-            
-            function showHint() {
-                if (!hintUsed) {
-                    score = Math.max(0, score - 50);
-                    updateScore();
-                    hintUsed = true;
-                }
-                feedbackMessage.textContent = `Hint: ${rooms[currentRoomIndex].hint}`;
-                feedbackMessage.className = '';
-                hintBtn.disabled = true;
-            }
-
-            function updateScore() {
-                scoreDisplay.textContent = `Score: ${score}`;
-            }
-
-            function startTimer() {
-                clearInterval(timerInterval);
-                timerInterval = setInterval(() => {
-                    secondsElapsed++;
-                    const minutes = Math.floor(secondsElapsed / 60).toString().padStart(2, '0');
-                    const seconds = (secondsElapsed % 60).toString().padStart(2, '0');
-                    timerDisplay.textContent = `Time: ${minutes}:${seconds}`;
-                }, 1000);
-            }
-
-            function finishGame() {
-                clearInterval(timerInterval);
-                playSound(victorySound);
-                if(backgroundMusic) backgroundMusic.pause();
-
-                gameScreen.classList.add('hidden');
-                endScreen.classList.remove('hidden');
-                
-                finalScoreDisplay.textContent = `Your Final Score: ${score}`;
-                finalTimeDisplay.textContent = `Time Taken: ${timerDisplay.textContent.replace('Time: ', '')}`;
-                
-                const highScoreVal = localStorage.getItem('escapeRoomHighScore');
-                const highScoreName = localStorage.getItem('escapeRoomHighScoreName') || 'The Warden';
-                if (!highScoreVal || score > parseInt(highScoreVal)) {
-                    localStorage.setItem('escapeRoomHighScore', score);
-                    localStorage.setItem('escapeRoomHighScoreName', playerName);
-                    highScoreDisplay.textContent = `New High Score!`;
-                } else {
-                    highScoreDisplay.textContent = `Best Score: ${highScoreVal} by ${highScoreName}`;
-                }
-
-                learnedWordsList.innerHTML = '';
-                learnedWords.forEach(word => {
-                    const li = document.createElement('li');
-                    li.textContent = word;
-                    learnedWordsList.appendChild(li);
-                });
-            }
-
-            // --- EVENT LISTENERS ---
-            startButton.addEventListener('click', () => {
-                const name = playerNameInput.value.trim();
-                if (name) {
-                    localStorage.setItem('escapeRoomPlayerName', name);
-                    startScreen.classList.add('hidden');
-                    gameScreen.classList.remove('hidden');
-                    fogLayer.classList.add('hidden');
-                    flickerOverlay.classList.remove('hidden');
-                    startGame();
-                } else {
-                    nameError.textContent = 'A name is required to mark your tombstone.';
-                    playerNameInput.classList.add('input-error');
-                }
-            });
-
-             playerNameInput.addEventListener('input', () => {
-                if (playerNameInput.value.trim()) {
-                    nameError.textContent = '';
-                    playerNameInput.classList.remove('input-error');
-                }
-            });
-
-            playerNameInput.addEventListener('keyup', (event) => {
-                if (event.key === 'Enter') {
-                    event.preventDefault();
-                    startButton.click();
-                }
-            });
-
-            checkAnswerBtn.addEventListener('click', checkAnswer);
-            answerInput.addEventListener('keyup', (event) => {
-                if (event.key === 'Enter') {
-                    checkAnswer();
-                }
-            });
-            hintBtn.addEventListener('click', showHint);
-            
-            restartBtn.addEventListener('click', () => {
-                endScreen.classList.add('hidden');
-                startScreen.classList.remove('hidden');
-                flickerOverlay.classList.add('hidden');
-                fogLayer.classList.remove('hidden');
-                playerNameInput.value = '';
-            });
-        });
-    </script>
-<script type="module" src="/index.tsx"></script>
+    <!-- Archivo principal de JavaScript -->
+    <script type="module" src="./main.js"></script>
 </body>
 </html>

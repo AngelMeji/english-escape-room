@@ -3,22 +3,22 @@
     Facilitan cambiar el estilo del juego desde un solo lugar.
 */
 :root {
-    --primary-bg: #0d0d0d;          /* Fondo principal oscuro */
-    --secondary-bg: #1a1a1a;        /* Fondo secundario */
-    --accent-color: #5c0000;        /* Color rojo oscuro para detalles */
-    --text-color: #a94442;          /* Color rojo para títulos */
-    --light-text-color: #dcdcdc;    /* Color claro para textos */
-    --correct-color: #3c763d;       /* Color verde para respuestas correctas */
-    --incorrect-color: #a94442;     /* Rojo para respuestas incorrectas */
-    --font-title: 'Courier New', Courier, monospace;
-    --font-body: 'Courier New', Courier, monospace;
+  --primary-bg: #0d0d0d; /* Fondo principal oscuro */
+  --secondary-bg: #1a1a1a; /* Fondo secundario */
+  --accent-color: #5c0000; /* Color rojo oscuro para detalles */
+  --text-color: #a94442; /* Color rojo para títulos */
+  --light-text-color: #dcdcdc; /* Color claro para textos */
+  --correct-color: #3c763d; /* Color verde para respuestas correctas */
+  --incorrect-color: #a94442; /* Rojo para respuestas incorrectas */
+  --font-title: "Courier New", Courier, monospace;
+  --font-body: "Courier New", Courier, monospace;
 }
 
 /* Reset general */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /*  
@@ -26,21 +26,21 @@
     Fondo con patrón SVG + efecto de pantalla oscura estilo "terror".
 */
 body {
-    font-family: var(--font-body);
-    background-color: var(--primary-bg);
-    color: var(--light-text-color);
+  font-family: var(--font-body);
+  background-color: var(--primary-bg);
+  color: var(--light-text-color);
 
-    /* Imagen SVG que genera textura cuadriculada */
-    background-image: url('data:image/svg+xml,...');
+  /* Imagen SVG que genera textura cuadriculada */
+  background-image: url("data:image/svg+xml,...");
 
-    background-attachment: fixed;       /* Fondo fijo */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 1rem;
-    overflow: hidden;
-    position: relative;
+  background-attachment: fixed; /* Fondo fijo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  overflow: hidden;
+  position: relative;
 }
 
 /*  
@@ -48,13 +48,15 @@ body {
     Da la sensación de pantalla defectuosa o ambiente misterioso.
 */
 .flicker-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.2);
-    animation: flicker 4s infinite alternate;
-    pointer-events: none;
-    z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  animation: flicker 4s infinite alternate;
+  pointer-events: none;
+  z-index: 100;
 }
 
 /*  
@@ -62,63 +64,63 @@ body {
     Se mueve lentamente para dar efecto de atmósfera.
 */
 .fog-layer {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: radial-gradient(
-        circle,
-        rgba(13, 13, 13, 0.1) 0%,
-        rgba(13, 13, 13, 0.8) 70%,
-        #0d0d0d 100%
-    );
-    animation: fog 20s linear infinite alternate;
-    pointer-events: none;
-    z-index: 101;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(13, 13, 13, 0.1) 0%,
+    rgba(13, 13, 13, 0.8) 70%,
+    #0d0d0d 100%
+  );
+  animation: fog 20s linear infinite alternate;
+  pointer-events: none;
+  z-index: 101;
 }
 
 /* Contenedor general del juego */
 .screen-container {
-    width: 100%;
-    max-width: 1200px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 2; /* Sitúa el contenido encima del efecto de niebla */
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2; /* Sitúa el contenido encima del efecto de niebla */
 }
 
 /* Caja central del contenido */
 .content-box {
-    background-color: rgba(26, 26, 26, 0.7);
-    padding: 2rem 3rem;
-    border-radius: 5px;
-    border: 1px solid var(--accent-color);
-    box-shadow: 
-        0 0 35px rgba(0, 0, 0, 0.8),
-        inset 0 0 15px rgba(92, 0, 0, 0.5);
-    text-align: center;
-    backdrop-filter: blur(3px); /* Efecto de vidrio borroso */
+  background-color: rgba(26, 26, 26, 0.7);
+  padding: 2rem 3rem;
+  border-radius: 5px;
+  border: 1px solid var(--accent-color);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(92, 0, 0, 0.5);
+  text-align: center;
+  backdrop-filter: blur(3px); /* Efecto de vidrio borroso */
 }
 
 /* Título del juego */
 .game-title {
-    font-family: var(--font-title);
-    font-size: 4rem;
-    color: var(--text-color);
-    letter-spacing: 8px;
-    margin-bottom: 1rem;
-    text-shadow: 0 0 15px var(--text-color), 0 0 5px #ff0000;
-    text-transform: uppercase;
+  font-family: var(--font-title);
+  font-size: 4rem;
+  color: var(--text-color);
+  letter-spacing: 8px;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 15px var(--text-color), 0 0 5px #ff0000;
+  text-transform: uppercase;
 }
 
 /* Texto de instrucciones */
 .instructions.subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    max-width: 500px;
-    color: var(--light-text-color);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 500px;
+  color: var(--light-text-color);
 }
 
 /*  
@@ -126,23 +128,23 @@ body {
     Estilo retro oscuro + borde animado cuando se enfoca.
 */
 input[type="text"] {
-    width: 100%;
-    max-width: 400px;
-    padding: 0.8rem 1rem;
-    font-size: 1.2rem;
-    border-radius: 3px;
-    border: 1px solid var(--text-color);
-    background-color: #111;
-    color: var(--light-text-color);
-    margin-bottom: 1rem;
-    transition: all 0.3s ease;
+  width: 100%;
+  max-width: 400px;
+  padding: 0.8rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 3px;
+  border: 1px solid var(--text-color);
+  background-color: #111;
+  color: var(--light-text-color);
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
 }
 
 /* Animación al hacer foco */
 input[type="text"]:focus {
-    outline: none;
-    border-color: #ff4d4d;
-    box-shadow: 0 0 10px rgba(169, 68, 66, 0.7);
+  outline: none;
+  border-color: #ff4d4d;
+  box-shadow: 0 0 10px rgba(169, 68, 66, 0.7);
 }
 
 /*  
@@ -150,168 +152,162 @@ input[type="text"]:focus {
     Estilo con sombra, gradientes y animación al pasar el mouse.
 */
 button {
-    padding: 0.8rem 1.5rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 3px;
-    border: 1px solid var(--text-color);
-    background: linear-gradient(
-        rgba(169, 68, 66, 0.3),
-        rgba(169, 68, 66, 0.1)
-    );
-    color: var(--text-color);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    text-shadow: 0 0 5px var(--text-color);
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 3px;
+  border: 1px solid var(--text-color);
+  background: linear-gradient(rgba(169, 68, 66, 0.3), rgba(169, 68, 66, 0.1));
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px var(--text-color);
 }
 
 button:hover {
-    background: linear-gradient(
-        rgba(169, 68, 66, 0.5),
-        rgba(169, 68, 66, 0.3)
-    );
-    color: #fff;
-    box-shadow: 0 0 15px rgba(169, 68, 66, 0.6);
+  background: linear-gradient(rgba(169, 68, 66, 0.5), rgba(169, 68, 66, 0.3));
+  color: #fff;
+  box-shadow: 0 0 15px rgba(169, 68, 66, 0.6);
 }
 
 button:active {
-    transform: scale(0.98);
+  transform: scale(0.98);
 }
 
 /* Estado de error en inputs */
 .error-message {
-    color: var(--incorrect-color);
-    margin-top: 1rem;
-    height: 1.2em;
-    text-shadow: 0 0 5px var(--incorrect-color);
+  color: var(--incorrect-color);
+  margin-top: 1rem;
+  height: 1.2em;
+  text-shadow: 0 0 5px var(--incorrect-color);
 }
 
 .input-error {
-    border-color: var(--incorrect-color);
-    animation: shake 0.5s;
+  border-color: var(--incorrect-color);
+  animation: shake 0.5s;
 }
 
 /* Clases utilitarias */
 .hidden {
-    display: none !important;
+  display: none !important;
 }
 
 /*  
     BARRA SUPERIOR DEL JUEGO (Tiempo, puntaje, etc.)
 */
 .game-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 0.5rem 2rem;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-bottom: 1px solid var(--accent-color);
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
-    text-shadow: 0 0 5px #000;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0.5rem 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid var(--accent-color);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  text-shadow: 0 0 5px #000;
 }
 
 /* Contenedor del área principal */
 #game-area {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  flex-grow: 1;
 }
 
 /* Contenedor de preguntas */
 #challenge-container {
-    flex-basis: 50%;
-    max-width: 600px;
+  flex-basis: 50%;
+  max-width: 600px;
 }
 
 /* Pregunta */
 #challenge-question {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    color: var(--light-text-color);
-    min-height: 3em;
-    line-height: 1.4;
-    text-shadow: 1px 1px 3px #000;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--light-text-color);
+  min-height: 3em;
+  line-height: 1.4;
+  text-shadow: 1px 1px 3px #000;
 }
 
 /* Párrafo de pistas */
 #challenge-paragraph {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    background: rgba(0,0,0,0.2);
-    padding: 1rem;
-    border-left: 3px solid var(--accent-color);
-    border-radius: 3px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-left: 3px solid var(--accent-color);
+  border-radius: 3px;
 }
 
 /* Contenedor de botones */
 .button-group {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 /* Estilo del botón de pista */
 #hint-btn {
-    background: linear-gradient(rgba(80, 70, 0, 0.3), rgba(80, 70, 0, 0.1));
-    border-color: #555;
-    color: #aaa;
+  background: linear-gradient(rgba(80, 70, 0, 0.3), rgba(80, 70, 0, 0.1));
+  border-color: #555;
+  color: #aaa;
 }
 #hint-btn:hover {
-    color: #fff;
-    border-color: #888;
-    box-shadow: 0 0 15px rgba(200, 180, 0, 0.6);
+  color: #fff;
+  border-color: #888;
+  box-shadow: 0 0 15px rgba(200, 180, 0, 0.6);
 }
 
 /*  
     MENSAJES DE RETROALIMENTACIÓN (Correcto/Incorrecto)
 */
 #feedback-message {
-    margin-top: 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-    min-height: 1.5em;
-    text-transform: uppercase;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  min-height: 1.5em;
+  text-transform: uppercase;
 }
 
 .feedback-correct {
-    color: var(--correct-color);
-    animation: glowGreen 1.5s ease-in-out;
+  color: var(--correct-color);
+  animation: glowGreen 1.5s ease-in-out;
 }
 
 .feedback-incorrect {
-    color: var(--incorrect-color);
-    animation: glowRed 1.5s ease-in-out;
+  color: var(--incorrect-color);
+  animation: glowRed 1.5s ease-in-out;
 }
 
 /*  
     OPCIONES MULTIPLE CHOICE (2 columnas)
 */
 #multiple-choice-options {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin: 1.5rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
 }
 
 .choice-btn {
-    width: 100%;
-    padding: 1rem;
-    background-color: rgba(0,0,0,0.2);
-    border: 1px solid #444;
-    color: #ccc;
-    font-size: 1.1rem;
+  width: 100%;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid #444;
+  color: #ccc;
+  font-size: 1.1rem;
 }
 .choice-btn:hover {
-    background-color: rgba(92, 0, 0, 0.3);
-    border-color: var(--text-color);
+  background-color: rgba(92, 0, 0, 0.3);
+  border-color: var(--text-color);
 }
 
 /*  
@@ -319,146 +315,341 @@ button:active {
     Se abre en 3D usando transformaciones 3D.
 */
 #door-container {
-    perspective: 1200px;
-    flex-basis: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  perspective: 1200px;
+  flex-basis: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Marco de la puerta */
 .door-frame {
-    width: 220px;
-    height: 380px;
-    border: 15px solid #2a1a0a;
-    border-radius: 5px;
-    background: #000;
-    box-shadow: 0 0 30px rgba(0,0,0,0.8), inset 0 0 10px #000;
-    padding: 5px;
+  width: 220px;
+  height: 380px;
+  border: 15px solid #2a1a0a;
+  border-radius: 5px;
+  background: #000;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 10px #000;
+  padding: 5px;
 }
 
 /* Hoja de la puerta */
 .door {
-    width: 100%;
-    height: 100%;
-    background-color: #3b2a1a;
-    background-image: linear-gradient(to right, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 85%, rgba(0,0,0,0.4) 100%);
-    position: relative;
-    transform-origin: left; /* Punto donde gira */
-    transition: transform 1.5s cubic-bezier(0.68,-0.55,0.27,1.55);
-    cursor: pointer;
+  width: 100%;
+  height: 100%;
+  background-color: #3b2a1a;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0) 15%,
+    rgba(0, 0, 0, 0) 85%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  position: relative;
+  transform-origin: left; /* Punto donde gira */
+  transition: transform 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  cursor: pointer;
 }
 
 /* Estado de puerta abierta */
 .door.open {
-    transform: rotateY(-120deg);
+  transform: rotateY(-120deg);
 }
 
 /* Manija */
 .door-handle {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background-color: #333;
-    border: 2px solid #555;
-    border-radius: 50%;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-    box-shadow: 0 0 5px #000;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: #333;
+  border: 2px solid #555;
+  border-radius: 50%;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  box-shadow: 0 0 5px #000;
 }
 
 /*  
     PANTALLA FINAL  
 */
 .congrats-title {
-    font-size: 3rem;
-    color: var(--correct-color);
-    text-shadow: 0 0 10px var(--correct-color);
-    text-transform: uppercase;
+  font-size: 3rem;
+  color: var(--correct-color);
+  text-shadow: 0 0 10px var(--correct-color);
+  text-transform: uppercase;
 }
 
 #learned-words-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 1.5rem 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
+  list-style-type: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 #learned-words-list li {
-    background: var(--accent-color);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 1.1rem;
+  background: var(--accent-color);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 1.1rem;
 }
 
 /* Botón de reinicio */
 #restart-btn {
-    margin-top: 1.5rem;
-    background: linear-gradient(
-        rgba(60, 118, 61, 0.3),
-        rgba(60, 118, 61, 0.1)
-    );
-    border-color: var(--correct-color);
-    color: var(--correct-color);
+  margin-top: 1.5rem;
+  background: linear-gradient(rgba(60, 118, 61, 0.3), rgba(60, 118, 61, 0.1));
+  border-color: var(--correct-color);
+  color: var(--correct-color);
 }
 #restart-btn:hover {
-    color: #fff;
-    box-shadow: 0 0 15px rgba(60, 118, 61, 0.6);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(60, 118, 61, 0.6);
+}
+
+/* ============================================
+   THEME SPECIAL (ROOMS 5 AND 6)
+=============================================== */
+
+/* Fondo especial */
+.theme-special {
+  background: url("img/fondo.png") center/cover no-repeat fixed;
+}
+
+.theme-special #question {
+  color: #7cff42;
+}
+
+/* Mejor aplicado solo a textos */
+.theme-special p,
+.theme-special h1,
+.theme-special h2,
+.theme-special span,
+.theme-special #question {
+  text-shadow: 0 0 8px #7cff42;
+}
+
+/* Caja especial */
+.theme-special .content-box {
+  background: linear-gradient(rgba(60, 120, 40, 0.7), rgba(30, 70, 20, 0.8));
+  border: 3px solid #7cff42;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(124, 255, 66, 0.6),
+    inset 0 0 20px rgba(124, 255, 66, 0.4);
+  position: relative;
+}
+
+.theme-special #hint-btn {
+  border-color: #e7e7e7;
+  color: white;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.367),
+    rgba(234, 234, 234, 0.137)
+  );
+}
+
+.theme-special #hint-btn:hover {
+  background: linear-gradient(rgba(208, 208, 208, 0.4), rgba(100, 195, 96, 0.3));
+  box-shadow: 0 0 25px rgba(228, 228, 228, 0.8);
+  color: white;
+}
+
+.theme-special .content-box::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 20px;
+  background: radial-gradient(circle, #7cff42 40%, transparent 70%);
+  filter: blur(10px);
+  opacity: 0.3;
+}
+
+.theme-special .feedback-correct {
+    color: #7CFF42;
+    text-shadow: 0 0 10px #7CFF42, 0 0 20px #4aff1a;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.theme-special .feedback-incorrect {
+    color: #ff4949;
+    text-shadow: 0 0 10px #ff2424;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.theme-special .feedback-hint {
+    color: #9bff77;
+    text-shadow: 0 0 8px #7cff42;
+    font-style: italic;
+}
+
+/* Puerta con slime */
+.theme-special .door-container {
+  position: relative;
+}
+.theme-special #challenge-paragraph{
+    border-left: 2px solid white;
+}
+
+.theme-special #answer-input{
+    border: 1px solid white;
+}
+
+.theme-special .game-header{
+    border-bottom: 2px solid white;
+}
+
+.theme-special #door-container::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 185px;
+  background: url("img/slime2.png") center/contain no-repeat;
+  pointer-events: none;
+  z-index: 999;
+  animation: slimeDrip 2.5s ease-in-out infinite;
+}
+
+.theme-special .door-frame {
+  width: 18rem;
+  height: 35rem;
+  border: none;
+}
+
+/* Botones */
+.theme-special button {
+  border-color: #7cff42;
+  color: #7cff42;
+  background: linear-gradient(rgba(30, 70, 20, 0.6), rgba(20, 50, 15, 0.4));
+  text-shadow: 0 0 8px #7cff42;
+  box-shadow: 0 0 12px rgba(124, 255, 66, 0.3);
+}
+
+.theme-special button:hover {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(140, 30, 30, 0.3));
+  box-shadow: 0 0 25px rgba(124, 255, 66, 0.8);
+  color: white;
+}
+
+@keyframes slimeDrip {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(5px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 /* ===== ANIMACIONES ===== */
 
 @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-    20%, 40%, 60%, 80% { transform: translateX(5px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(5px);
+  }
 }
 
 @keyframes flicker {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
-    52% { opacity: 0.95; }
-    55% { opacity: 0.85; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  52% {
+    opacity: 0.95;
+  }
+  55% {
+    opacity: 0.85;
+  }
 }
 
 @keyframes fog {
-    0% { transform: scale(1.1); opacity: 0.7; }
-    50% { transform: scale(1.05) translate(10px, 5px); opacity: 0.8; }
-    100% { transform: scale(1.1); opacity: 0.7; }
+  0% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.05) translate(10px, 5px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
 }
 
 @keyframes glowGreen {
-    0%, 100% { text-shadow: none; }
-    50% { text-shadow: 0 0 20px var(--correct-color), 0 0 10px #fff; }
+  0%,
+  100% {
+    text-shadow: none;
+  }
+  50% {
+    text-shadow: 0 0 20px var(--correct-color), 0 0 10px #fff;
+  }
 }
 @keyframes glowRed {
-    0%, 100% { text-shadow: none; }
-    50% { text-shadow: 0 0 20px var(--incorrect-color), 0 0 10px #fff; }
+  0%,
+  100% {
+    text-shadow: none;
+  }
+  50% {
+    text-shadow: 0 0 20px var(--incorrect-color), 0 0 10px #fff;
+  }
 }
 
 /* ===== RESPONSIVE ===== */
 
 @media (max-width: 900px) {
-    #game-area {
-        flex-direction: column-reverse;
-        gap: 2rem;
-    }
-    #challenge-container, #door-container {
-        width: 100%;
-        max-width: 600px;
-    }
-    .game-header {
-        justify-content: space-around;
-        gap: 0.5rem;
-    }
+  #game-area {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+  #challenge-container,
+  #door-container {
+    width: 100%;
+    max-width: 600px;
+  }
+  .game-header {
+    justify-content: space-around;
+    gap: 0.5rem;
+  }
 }
 
 @media (max-width: 600px) {
-    .game-title { font-size: 2.5rem; }
-    .content-box { padding: 1.5rem; }
-    body { font-size: 14px; }
+  .game-title {
+    font-size: 2.5rem;
+  }
+  .content-box {
+    padding: 1.5rem;
+  }
+  body {
+    font-size: 14px;
+  }
 }

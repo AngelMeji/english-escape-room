@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
       answer: "Must",
       hint: "Completes this sentence: 'You ___ stop at a red light.'",
     },
-    
+
     // ---------- ROOM 7 ----------
     {
       type: "translate", // Tipo: encontrar palabra oculta
@@ -192,8 +192,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (index === 4) {
       body.classList.add("theme-special");
-    } else {
+    }
+    else if(index === 5){
+        body.classList.add("theme-special2")
+    } 
+    else {
       body.classList.remove("theme-special");
+      body.classList.remove("theme-special2");
     }
 
     // Si ya no hay más rooms → termina el juego

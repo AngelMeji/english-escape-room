@@ -30,8 +30,11 @@ body {
   background-color: var(--primary-bg);
   color: var(--light-text-color);
 
-  /* Imagen SVG que genera textura cuadriculada */
-  background-image: url("data:image/svg+xml,...");
+  /* Imagen SVG que genera textura cuadriculada (placeholder) */
+  background-image: radial-gradient(#1a1a1a 15%, transparent 16%),
+    radial-gradient(#1a1a1a 15%, transparent 16%);
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
 
   background-attachment: fixed; /* Fondo fijo */
   display: flex;
@@ -41,6 +44,7 @@ body {
   padding: 1rem;
   overflow: hidden;
   position: relative;
+  transition: background 0.8s ease, color 0.8s ease; /* Transición suave para cambios de tema */
 }
 
 /*  
@@ -95,13 +99,14 @@ body {
 
 /* Caja central del contenido */
 .content-box {
-  background-color: rgba(26, 26, 26, 0.7);
+  background-color: rgba(26, 26, 26, 0.85);
   padding: 2rem 3rem;
   border-radius: 5px;
   border: 1px solid var(--accent-color);
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(92, 0, 0, 0.5);
   text-align: center;
   backdrop-filter: blur(3px); /* Efecto de vidrio borroso */
+  transition: all 0.5s ease;
 }
 
 /* Título del juego */
@@ -208,6 +213,7 @@ button:active {
   margin-bottom: 2rem;
   font-size: 1.1rem;
   text-shadow: 0 0 5px #000;
+  transition: all 0.5s ease;
 }
 
 /* Contenedor del área principal */
@@ -233,6 +239,7 @@ button:active {
   min-height: 3em;
   line-height: 1.4;
   text-shadow: 1px 1px 3px #000;
+  transition: color 0.5s ease;
 }
 
 /* Párrafo de pistas */
@@ -320,6 +327,7 @@ button:active {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.5s ease;
 }
 
 /* Marco de la puerta */
@@ -331,6 +339,7 @@ button:active {
   background: #000;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 10px #000;
   padding: 5px;
+  transition: border-color 0.5s ease;
 }
 
 /* Hoja de la puerta */
@@ -347,7 +356,7 @@ button:active {
   );
   position: relative;
   transform-origin: left; /* Punto donde gira */
-  transition: transform 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transition: transform 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.5s ease;
   cursor: pointer;
 }
 
@@ -409,30 +418,244 @@ button:active {
   box-shadow: 0 0 15px rgba(60, 118, 61, 0.6);
 }
 
+/* =========================================================
+   ROOM 3: HABITACIÓN POSEÍDA POR UN FANTASMA (THEME GHOST)
+   Estética: Azul pálido, frío, etéreo, espectral.
+   Usamos body.theme-room3 para mayor especificidad.
+============================================================ */
+
+body.theme-room3 {
+  /* Fondo Azul Espectral */
+  background-color: #000810;
+  
+  /* 
+     ⬇️⬇️⬇️ PON LA IMAGEN DEL FANTASMA AQUÍ ⬇️⬇️⬇️
+     Ejemplo: url('mis-imagenes/fantasma.jpg'), ... 
+  */
+  background-image:url(./img/ghost_room.jpg), linear-gradient(rgba(0, 20, 40, 0.8), rgba(0, 10, 20, 0.9)); /* <--- 🔴 PASTE YOUR IMAGE URL HERE LIKE: url('img.jpg'), linear-gradient(...) 🔴 */
+    
+  background-size: cover;
+  color: #e0ffff; /* Cian muy pálido */
+}
+
+/* Efecto de parpadeo espectral en la caja principal */
+body.theme-room3 .content-box {
+  background: rgba(0, 20, 30, 0.8);
+  border: 1px solid #7df9ff;
+  box-shadow: 0 0 20px rgba(125, 249, 255, 0.3), inset 0 0 30px rgba(0, 50, 80, 0.5);
+  animation: spectralPulse 4s infinite ease-in-out;
+}
+
+@keyframes spectralPulse {
+  0% { box-shadow: 0 0 20px rgba(125, 249, 255, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(125, 249, 255, 0.5); }
+  100% { box-shadow: 0 0 20px rgba(125, 249, 255, 0.3); }
+}
+
+/* Textos */
+body.theme-room3 .game-title,
+body.theme-room3 h2,
+body.theme-room3 #challenge-question,
+body.theme-room3 #room-indicator {
+  color: #afeeee; /* PaleTurquoise */
+  text-shadow: 0 0 8px #7df9ff, 0 0 15px #00ffff;
+}
+
+/* Input y Botones */
+body.theme-room3 input[type="text"] {
+  background-color: rgba(0, 15, 25, 0.6);
+  border: 1px solid #afeeee;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(175, 238, 238, 0.2);
+}
+
+body.theme-room3 button {
+  border-color: #afeeee;
+  color: #afeeee;
+  background: linear-gradient(rgba(0, 50, 60, 0.4), rgba(0, 20, 30, 0.4));
+  text-shadow: 0 0 5px #afeeee;
+}
+
+body.theme-room3 button:hover {
+  background: rgba(175, 238, 238, 0.2);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(125, 249, 255, 0.6);
+}
+
+/* Puerta Espectral */
+body.theme-room3 .door-frame {
+  border-color: #2f4f4f;
+  background: #00111a;
+  box-shadow: 0 0 25px rgba(125, 249, 255, 0.4);
+}
+
+body.theme-room3 .door {
+  background-color: #1a2a33;
+  background-image: linear-gradient(to right, rgba(125, 249, 255, 0.1), transparent);
+  border: 1px solid rgba(125, 249, 255, 0.2);
+}
+
+/* Header */
+body.theme-room3 .game-header {
+  border-bottom: 1px solid #7df9ff;
+  background-color: rgba(0, 15, 25, 0.8);
+  color: #afeeee;
+}
+
+/* Feedback */
+body.theme-room3 .feedback-correct {
+  color: #fff;
+  text-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+}
+body.theme-room3 .feedback-incorrect {
+  color: #8a2be2; /* BlueViolet */
+  text-shadow: 0 0 10px #4b0082;
+}
+
+
+/* =========================================================
+   ROOM 4: RESGUARDADA POR UN MONSTRUO (THEME MONSTER)
+   Estética: Rojo intenso, óxido, peligro, texturas sucias.
+============================================================ */
+
+body.theme-room4 {
+  /* Fondo Rojo/Marrón Monstruoso */
+  background-color: #1a0505;
+
+  /* 
+     ⬇️⬇️⬇️ PON LA IMAGEN DEL MONSTRUO AQUÍ ⬇️⬇️⬇️
+     Ejemplo: url('mis-imagenes/monstruo.jpg'), ...
+  */
+  background-image: url(./img/monster_room.jpg), linear-gradient(rgba(50, 0, 0, 0.8), rgba(20, 0, 0, 0.95)); /* <--- 🔴 PASTE YOUR IMAGE URL HERE LIKE: url('img.jpg'), linear-gradient(...) 🔴 */
+    
+  background-size: cover;
+  color: #ffcccb; /* Rojo claro */
+}
+
+/* Caja principal con borde irregular/dañado visualmente */
+body.theme-room4 .content-box {
+  background: rgba(40, 5, 5, 0.85);
+  border: 3px solid #8b0000;
+  border-radius: 2px;
+  box-shadow: 0 0 30px rgba(139, 0, 0, 0.6), inset 0 0 50px rgba(0, 0, 0, 0.8);
+  animation: monsterBreath 3s infinite ease-in-out;
+}
+
+@keyframes monsterBreath {
+  0%, 100% { transform: scale(1); border-color: #8b0000; }
+  50% { transform: scale(1.005); border-color: #ff0000; }
+}
+
+/* Textos */
+body.theme-room4 .game-title,
+body.theme-room4 h2,
+body.theme-room4 #challenge-question {
+  color: #ff4500; /* OrangeRed */
+  text-shadow: 2px 2px 0px #000, 0 0 10px #ff0000;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Botones de opción (Multiple Choice) específicos para esta sala */
+body.theme-room4 .choice-btn {
+  background-color: rgba(50, 0, 0, 0.5);
+  border: 1px solid #8b0000;
+  color: #ffaeae;
+  transition: all 0.2s;
+}
+
+body.theme-room4 .choice-btn:hover {
+  background-color: #8b0000;
+  color: #fff;
+  transform: scale(1.02);
+  box-shadow: 0 0 15px #ff4500;
+}
+
+/* Input y Botones generales */
+body.theme-room4 input[type="text"] {
+  border-color: #ff4500;
+  background-color: #220a0a;
+  color: #ffdddd;
+}
+
+body.theme-room4 button {
+  border: 2px solid #5c0000;
+  background: linear-gradient(#400, #200);
+  color: #ff4500;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+body.theme-room4 button:hover {
+  background: #ff0000;
+  color: #000;
+  box-shadow: 0 0 20px #ff0000;
+}
+
+/* Puerta del Monstruo (Tosca, pesada) */
+body.theme-room4 .door-frame {
+  border: 15px solid #3d0e0e; 
+  background: #1a0505;
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.5);
+}
+
+body.theme-room4 .door {
+  background-color: #4a1515;
+  background-image: radial-gradient(circle at center, #6b2222, #2b0808);
+}
+
+body.theme-room4 .door-handle {
+  border-radius: 0; /* Manija cuadrada/tosca */
+  background: #220000;
+  border-color: #ff0000;
+}
+
+/* Header */
+body.theme-room4 .game-header {
+  border-bottom: 2px solid #8b0000;
+  background: rgba(40, 0, 0, 0.9);
+}
+
+/* Feedback */
+body.theme-room4 .feedback-correct {
+  color: #ffd700; /* Gold */
+  text-shadow: 0 0 10px #ff8c00;
+}
+body.theme-room4 .feedback-incorrect {
+  color: #ff0000;
+  text-shadow: 0 0 15px #8b0000, 2px 2px 0 #000;
+  font-size: 1.8rem; /* Más grande y agresivo */
+}
+
+
 /* ============================================
    THEME SPECIAL (ROOM 5)
 =============================================== */
 
 /* Fondo especial */
-.theme-special {
-  background: url("img/fondo.png") center/cover no-repeat fixed;
+body.theme-special {
+  /* Si no hay imagen, usar color verde tóxico */
+  background-color: #0a1a0a;
+  background-image: url("img/fondo.png"); 
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-.theme-special #question {
+body.theme-special #question {
   color: #7cff42;
 }
 
 /* Mejor aplicado solo a textos */
-.theme-special p,
-.theme-special h1,
-.theme-special h2,
-.theme-special span,
-.theme-special #question {
+body.theme-special p,
+body.theme-special h1,
+body.theme-special h2,
+body.theme-special span,
+body.theme-special #question {
   text-shadow: 0 0 8px #7cff42;
 }
 
 /* Caja especial */
-.theme-special .content-box {
+body.theme-special .content-box {
   background: linear-gradient(rgba(60, 120, 40, 0.7), rgba(30, 70, 20, 0.8));
   border: 3px solid #7cff42;
   border-radius: 12px;
@@ -441,7 +664,7 @@ button:active {
   position: relative;
 }
 
-.theme-special #hint-btn {
+body.theme-special #hint-btn {
   border-color: #e7e7e7;
   color: white;
   background: linear-gradient(
@@ -450,13 +673,13 @@ button:active {
   );
 }
 
-.theme-special #hint-btn:hover {
+body.theme-special #hint-btn:hover {
   background: linear-gradient(rgba(208, 208, 208, 0.4), rgba(100, 195, 96, 0.3));
   box-shadow: 0 0 25px rgba(228, 228, 228, 0.8);
   color: white;
 }
 
-.theme-special .content-box::after {
+body.theme-special .content-box::after {
   content: "";
   position: absolute;
   bottom: -10px;
@@ -469,43 +692,43 @@ button:active {
   opacity: 0.3;
 }
 
-.theme-special .feedback-correct {
+body.theme-special .feedback-correct {
     color: #7CFF42;
     text-shadow: 0 0 10px #7CFF42, 0 0 20px #4aff1a;
     font-weight: bold;
     font-size: 1.5rem;
 }
 
-.theme-special .feedback-incorrect {
+body.theme-special .feedback-incorrect {
     color: #ff4949;
     text-shadow: 0 0 10px #ff2424;
     font-weight: bold;
     font-size: 1.5rem;
 }
 
-.theme-special .feedback-hint {
+body.theme-special .feedback-hint {
     color: #9bff77;
     text-shadow: 0 0 8px #7cff42;
     font-style: italic;
 }
 
 /* Puerta con slime */
-.theme-special .door-container {
+body.theme-special .door-container {
   position: relative;
 }
-.theme-special #challenge-paragraph{
+body.theme-special #challenge-paragraph{
     border-left: 2px solid white;
 }
 
-.theme-special #answer-input{
+body.theme-special #answer-input{
     border: 1px solid white;
 }
 
-.theme-special .game-header{
+body.theme-special .game-header{
     border-bottom: 2px solid white;
 }
 
-.theme-special #door-container::after {
+body.theme-special #door-container::after {
   content: "";
   position: absolute;
   top: 7px;
@@ -519,14 +742,14 @@ button:active {
   animation: slimeDrip 2.5s ease-in-out infinite;
 }
 
-.theme-special .door-frame {
+body.theme-special .door-frame {
   width: 18rem;
   height: 35rem;
   border: none;
 }
 
 /* Botones */
-.theme-special button {
+body.theme-special button {
   border-color: #7cff42;
   color: #7cff42;
   background: linear-gradient(rgba(30, 70, 20, 0.6), rgba(20, 50, 15, 0.4));
@@ -534,7 +757,7 @@ button:active {
   box-shadow: 0 0 12px rgba(124, 255, 66, 0.3);
 }
 
-.theme-special button:hover {
+body.theme-special button:hover {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(140, 30, 30, 0.3));
   box-shadow: 0 0 25px rgba(124, 255, 66, 0.8);
   color: white;
@@ -552,39 +775,40 @@ button:active {
   }
 }
 
-
-
 /* ============================================
    THEME SPECIAL 2 (ROOM 6) - Tono más oscuro
 =============================================== */
 
-.theme-special2 #door-container::after {
+body.theme-special2 #door-container::after {
   content: none !important;
 }
 
-.theme-special2 #challenge-container::after {
+body.theme-special2 #challenge-container::after {
   background: transparent !important;
 }
 
-.theme-special2 {
-  background:
+body.theme-special2 {
+  background-color: #0a0e0a;
+  background-image:
     linear-gradient(rgba(3,6,3,0.65), rgba(6,10,6,0.75)),
-    url("img/Fondo2.png") center/cover no-repeat fixed;
+    url("img/Fondo2.png");
+  background-size: cover;
+  background-attachment: fixed;
   color: #cfeecf;
 }
 
 /* Textos */
-.theme-special2 p,
-.theme-special2 h1,
-.theme-special2 h2,
-.theme-special2 span,
-.theme-special2 #challenge-question {
+body.theme-special2 p,
+body.theme-special2 h1,
+body.theme-special2 h2,
+body.theme-special2 span,
+body.theme-special2 #challenge-question {
   color: #b08787;
   text-shadow: 0 0 6px rgba(255, 66, 66, 0.12);
 }
 
 /* Caja */
-.theme-special2 .content-box {
+body.theme-special2 .content-box {
   background: linear-gradient(180deg, rgba(6, 12, 6, 0.308), rgba(10, 18, 10, 0.33));
   border: 2px solid rgba(37, 1, 1, 0.405);
   border-radius: 10px;
@@ -604,41 +828,41 @@ button:active {
 }
 
 /* Botón Hint */
-.theme-special2 #hint-btn {
+body.theme-special2 #hint-btn {
   border-color: rgba(230,230,230,0.06);
   color: #e9fbe9;
   background: linear-gradient(rgba(255,255,255,0.04), rgba(255,255,255,0.02));
 }
 
-.theme-special2 #hint-btn:hover {
+body.theme-special2 #hint-btn:hover {
   background: linear-gradient(rgba(255,255,255,0.06), rgba(255,255,255,0.03));
   box-shadow: 0 6px 18px rgba(0,0,0,0.5);
   color: #fff;
 }
 
 /* Feedback */
-.theme-special2 .feedback-correct {
+body.theme-special2 .feedback-correct {
   color: #522f04;
   text-shadow: 0 0 10px rgba(255, 123, 66, 0.18);
   font-weight: 700;
   font-size: 1.4rem;
 }
 
-.theme-special2 .feedback-incorrect {
+body.theme-special2 .feedback-incorrect {
   color: #ff6767;
   text-shadow: 0 0 8px rgba(255,103,103,0.12);
   font-weight: 700;
   font-size: 1.4rem;
 }
 
-.theme-special2 .feedback-hint {
+body.theme-special2 .feedback-hint {
   color: #fdeba8;
   text-shadow: 0 0 6px rgba(255, 110, 66, 0.1);
   font-style: italic;
 }
 
 /* Puerta */
-.theme-special2 .door-frame {
+body.theme-special2 .door-frame {
   width: 18rem;
   height: 35rem;
   border-radius: 6px;
@@ -650,7 +874,7 @@ button:active {
   justify-content: center;
 }
 
-.theme-special2 .door {
+body.theme-special2 .door {
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, #11120fbd 0%, #1a1a1ad2 50%, #0f0f0feb 100%);
@@ -662,23 +886,23 @@ button:active {
   border-radius: 4px;
 }
 
-.theme-special .game-header{
+body.theme-special .game-header{
     border-bottom: 2px solid rgb(95, 21, 21);
     color: #b49797;
 }
 
-.theme-special #challenge-container{
+body.theme-special #challenge-container{
     box-shadow: none;
 }
 
-.theme-special2 .door-handle {
+body.theme-special2 .door-handle {
   background-color: #2a2a2a;
   border: 1px solid #3b3b3b;
   box-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 
 /* Botones generales */
-.theme-special2 button {
+body.theme-special2 button {
   border-color: rgba(0, 0, 0, 0.22);
   color: #610202;
   background: linear-gradient(rgba(30, 22, 12, 0.648), rgba(24, 10, 10, 0.5));
@@ -687,13 +911,13 @@ button:active {
   transition: box-shadow .2s ease, transform .12s ease;
 }
 
-.theme-special2 button:hover {
+body.theme-special2 button:hover {
   background: linear-gradient(rgba(70, 20, 20, 0.65), rgba(40, 29, 18, 0.55));
   box-shadow: 0 10px 22px rgba(0,0,0,0.6);
   color: #fff;
 }
 
-.theme-special2 #hint-btn {
+body.theme-special2 #hint-btn {
   border-color: #381313c4;
   color: rgba(198, 196, 196, 0.467);
   background: linear-gradient(
@@ -702,7 +926,7 @@ button:active {
   );
 }
 
-.theme-special2 #hint-btn:hover {
+body.theme-special2 #hint-btn:hover {
   background: linear-gradient(rgba(208, 208, 208, 0.4), rgba(110, 51, 51, 0.3));
   box-shadow: 0 0 25px rgba(228, 228, 228, 0.416);
   color: white;
@@ -710,11 +934,11 @@ button:active {
 
 /* Responsive */
 @media (max-width: 900px) {
-  .theme-special2 .door-frame {
+  body.theme-special2 .door-frame {
     width: 60%;
     height: 60vh;
   }
-  .theme-special2 .content-box {
+  body.theme-special2 .content-box {
     padding: 1.2rem;
   }
 }

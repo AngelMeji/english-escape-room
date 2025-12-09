@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const rooms = [
     // ---------- ROOM 1 ----------
     {
-      type: "translate", 
+      type: "translate",
       question: "Translate the bloody message on the wall: 'Sombra'",
       answer: "shadow",
       hint: "It follows you but you can never catch it.",
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ---------- ROOM 2 ----------
     {
-      type: "jumble", 
+      type: "jumble",
       question:
         "Unscramble the letters to reveal the haunting sound: T E L S K O N E",
       answer: "skeleton",
@@ -23,20 +23,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ---------- ROOM 3 (Ghost Theme) ----------
     {
-      type: "riddle", 
+      type: "riddle",
       question:
-        "I have no voice, but I can tell you stories. I have a spine, but no bones. What am I?",
-      answer: "book",
-      hint: "Often found in a library, like this one...",
+        "You hear a whisper in the empty hall: 'You ___ not look behind you.' Which modal verb completes the warning?",
+      answer: "must",
+      hint: "It expresses a strong obligation… or a deadly one.",
     },
 
     // ---------- ROOM 4 (Monster Theme) ----------
     {
-      type: "multiple", 
-      question: "Which word describes a place where the dead are buried?",
-      options: ["Basement", "Attic", "Cemetery", "Dungeon"], 
-      answer: "cemetery",
-      hint: "It's also known as a graveyard.",
+      type: "multiple",
+      question: "Which sentence is in passive voice?",
+      options: [
+        "The shadows consumed him.",
+        "He was consumed by the shadows.",
+        "The shadows consume him.",
+        "He consumes the shadows.",
+      ],
+      answer: "He was consumed by the shadows.",
+      hint: "In passive, the victim comes first… always.",
     },
     // ---------- ROOM 5 ----------
     {
@@ -60,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ---------- ROOM 7 ----------
     {
-      type: "translate", 
+      type: "translate",
       question: "Complete the passive voice sentence:",
       paragraph:
         "The experiment ___ (conduct) in the abandoned laboratory last night.",
@@ -70,32 +75,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ---------- ROOM 8 ----------
     {
-      type: "jumble", 
+      type: "jumble",
       question: "Put the words in the correct passive voice order:",
-      paragraph:
-        "the / was / discovered / formula / old",
+      paragraph: "the / was / discovered / formula / old",
       answer: "the old formula was discovered",
       hint: "Start with 'the old formula' + passive structure.",
     },
     // ---------- ROOM 9 ----------
-{
-    type: "jumble",
-    question: "Put the words in the correct passive voice order:",
-    paragraph:
-        "is / built / being / the / machine",
-    answer: "the machine is being built",
-    hint: "Start with 'the machine' + passive structure (Present Continuous Passive).",
-},
+    {
+      type: "jumble",
+      question: "Put the words in the correct passive voice order:",
+      paragraph: "is / built / being / the / machine",
+      answer: "the machine is being built",
+      hint: "Start with 'the machine' + passive structure (Present Continuous Passive).",
+    },
 
-// ---------- ROOM 10 ----------
-{
-    type: "jumble",
-    question: "Put the words in the correct passive voice order:",
-    paragraph:
-        "will / by / be / tomorrow / the / delivered / package",
-    answer: "the package will be delivered by tomorrow",
-    hint: "Start with 'the package' + passive structure (Future Simple Passive).",
-},
+    // ---------- ROOM 10 ----------
+    {
+      type: "jumble",
+      question: "Put the words in the correct passive voice order:",
+      paragraph: "will / by / be / tomorrow / the / delivered / package",
+      answer: "the package will be delivered by tomorrow",
+      hint: "Start with 'the package' + passive structure (Future Simple Passive).",
+    },
   ];
 
   // -----------------------------------
@@ -141,12 +143,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // ----------- GAME STATE ------------
   // -----------------------------------
   let playerName = "";
-  let currentRoomIndex = 0; 
-  let score = 0; 
-  let learnedWords = []; 
-  let hintUsed = false; 
-  let timerInterval; 
-  let secondsElapsed = 0; 
+  let currentRoomIndex = 0;
+  let score = 0;
+  let learnedWords = [];
+  let hintUsed = false;
+  let timerInterval;
+  let secondsElapsed = 0;
 
   // -----------------------------------
   // -------------- FUNCTIONS -----------
@@ -201,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "theme-room7",
       "theme-room8",
       "theme-room9",
-      "theme-room10",
+      "theme-room10"
     );
 
     if (index === 2) {
@@ -229,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const room = rooms[index]; 
+    const room = rooms[index];
 
     questionEl.textContent = room.question;
     roomIndicator.textContent = `Room ${index + 1}/${rooms.length}`;
@@ -251,8 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (room.paragraph) {
       paragraphEl.textContent = room.paragraph;
       paragraphEl.classList.remove("hidden");
-    }
-    else if (room.type === "multiple") {
+    } else if (room.type === "multiple") {
       answerInput.classList.add("hidden");
       checkAnswerBtn.classList.add("hidden");
       multipleChoiceEl.classList.remove("hidden");

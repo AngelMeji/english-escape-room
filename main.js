@@ -77,6 +77,25 @@ document.addEventListener("DOMContentLoaded", () => {
       answer: "the old formula was discovered",
       hint: "Start with 'the old formula' + passive structure.",
     },
+    // ---------- ROOM 9 ----------
+{
+    type: "jumble",
+    question: "Put the words in the correct passive voice order:",
+    paragraph:
+        "is / built / being / the / machine",
+    answer: "the machine is being built",
+    hint: "Start with 'the machine' + passive structure (Present Continuous Passive).",
+},
+
+// ---------- ROOM 10 ----------
+{
+    type: "jumble",
+    question: "Put the words in the correct passive voice order:",
+    paragraph:
+        "will / by / be / tomorrow / the / delivered / package",
+    answer: "the package will be delivered by tomorrow",
+    hint: "Start with 'the package' + passive structure (Future Simple Passive).",
+},
   ];
 
   // -----------------------------------
@@ -181,6 +200,8 @@ document.addEventListener("DOMContentLoaded", () => {
       "theme-room4",
       "theme-room7",
       "theme-room8",
+      "theme-room9",
+      "theme-room10",
     );
 
     if (index === 2) {

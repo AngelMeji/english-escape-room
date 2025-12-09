@@ -887,7 +887,7 @@ body.theme-special2 .door {
 }
 
 body.theme-special .game-header{
-    border-bottom: 2px solid rgb(95, 21, 21);
+    border-bottom: 2px solid #0e570e;
     color: #b49797;
 }
 
@@ -930,6 +930,175 @@ body.theme-special2 #hint-btn:hover {
   background: linear-gradient(rgba(208, 208, 208, 0.4), rgba(110, 51, 51, 0.3));
   box-shadow: 0 0 25px rgba(228, 228, 228, 0.416);
   color: white;
+}
+
+/* =========================================================
+   ROOM 7: CÁMARA DEL TESORO EN LA JUNGLA (THEME TREASURE)
+   Estética: Verde selvático + dorado, sensación de aventura.
+============================================================ */
+
+body.theme-room7 {
+  background-color: #0b1f0b;
+  background-image: url("./img/camara_tesoro.png"),
+    linear-gradient(rgba(10, 40, 15, 0.8), rgba(5, 20, 10, 0.95));
+  background-size: cover;
+  background-position: center;
+  color: #e8fcd9; /* Verde muy claro */
+}
+
+/* Caja dorada/selvática */
+body.theme-room7 .content-box {
+  background: rgba(20, 40, 15, 0.85);
+  border: 2px solid #c2a93b; /* Dorado */
+  box-shadow: 0 0 25px rgba(194, 169, 59, 0.35), inset 0 0 20px rgba(0, 60, 20, 0.5);
+  border-radius: 8px;
+  backdrop-filter: blur(2px);
+}
+
+/* Títulos y textos */
+body.theme-room7 .game-title,
+body.theme-room7 h2,
+body.theme-room7 #challenge-question,
+body.theme-room7 #room-indicator {
+  color: #ffe27b;
+  text-shadow: 0 0 10px #c2a93b;
+}
+
+/* Inputs */
+body.theme-room7 input[type="text"] {
+  background-color: rgba(10, 30, 10, 0.7);
+  border: 1px solid #c2a93b;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(194, 169, 59, 0.4);
+}
+
+/* Botones */
+body.theme-room7 button {
+  border-color: #d7c26a;
+  color: #ffe27b;
+  background: linear-gradient(#4a5f2a, #2f3f1a);
+  text-shadow: 0 0 5px #c2a93b;
+}
+
+body.theme-room7 button:hover {
+  background: #c2a93b;
+  color: #000;
+  box-shadow: 0 0 20px #ffe27b;
+}
+
+/* Puerta estilo templo */
+body.theme-room7 .door-frame {
+  border-color: #4e3b1e;
+  background: #1c1a0f;
+  box-shadow: 0 0 35px rgba(194, 169, 59, 0.5);
+}
+
+body.theme-room7 .door {
+  background-color: #3d3015;
+  background-image: linear-gradient(to bottom, rgba(200, 170, 60, 0.2), transparent);
+  border: 1px solid rgba(200, 170, 60, 0.3);
+}
+
+/* Header */
+body.theme-room7 .game-header {
+  border-bottom: 1px solid #d7c26a;
+  background-color: rgba(10, 30, 10, 0.85);
+}
+
+/* Feedback */
+body.theme-room7 .feedback-correct {
+  color: #c2ff7b;
+  text-shadow: 0 0 15px #79ff24;
+}
+
+body.theme-room7 .feedback-incorrect {
+  color: #ff5e5e;
+  text-shadow: 0 0 10px #a70000;
+}
+
+
+/* =========================================================
+   ROOM 8: ESTUDIO VICTORIANO EMBRUJADO (THEME VICTORIAN)
+   Estética: Madera oscura, morado profundo, lujo + misterio.
+============================================================ */
+
+body.theme-room8 {
+  background-color: #1a0d17;
+  background-image: url("./img/estudio_victoriano.png"),
+    linear-gradient(rgba(20, 0, 20, 0.7), rgba(10, 0, 15, 0.9));
+  background-size: cover;
+  background-position: center;
+  color: #f0e6ff; /* Lavanda claro */
+}
+
+/* Caja elegante */
+body.theme-room8 .content-box {
+  background: rgba(25, 0, 35, 0.75);
+  border: 2px solid #a878c9;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(168, 120, 201, 0.4),
+    inset 0 0 25px rgba(80, 20, 100, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+/* Textos */
+body.theme-room8 .game-title,
+body.theme-room8 h2,
+body.theme-room8 #challenge-question,
+body.theme-room8 #room-indicator {
+  color: #d9b3ff;
+  text-shadow: 0 0 12px #a878c9;
+}
+
+/* Input */
+body.theme-room8 input[type="text"] {
+  background-color: rgba(45, 0, 65, 0.6);
+  border: 1px solid #a878c9;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(168, 120, 201, 0.4);
+}
+
+/* Botones */
+body.theme-room8 button {
+  border-color: #b98ce8;
+  background: linear-gradient(#4d0066, #2f0044);
+  color: #e7d1ff;
+  text-shadow: 0 0 5px #a878c9;
+}
+
+body.theme-room8 button:hover {
+  background: #b98ce8;
+  color: #000;
+  box-shadow: 0 0 20px #d9b3ff;
+}
+
+/* Puerta victoriana */
+body.theme-room8 .door-frame {
+  border: 12px solid #2d0f29;
+  background: #140612;
+  box-shadow: 0 0 35px rgba(168, 120, 201, 0.5);
+}
+
+body.theme-room8 .door {
+  background-color: #3b1034;
+  background-image: linear-gradient(to bottom, rgba(168, 120, 201, 0.25), transparent);
+  border: 1px solid rgba(168, 120, 201, 0.3);
+}
+
+/* Header */
+body.theme-room8 .game-header {
+  border-bottom: 1px solid #a878c9;
+  background-color: rgba(25, 0, 35, 0.8);
+}
+
+/* Feedback */
+body.theme-room8 .feedback-correct {
+  color: #d0ffea;
+  text-shadow: 0 0 15px #7dffcf;
+}
+body.theme-room8 .feedback-incorrect {
+  color: #ff70af;
+  text-shadow: 0 0 15px #8d004f;
 }
 
 /* Responsive */

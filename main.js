@@ -61,21 +61,21 @@ document.addEventListener("DOMContentLoaded", () => {
     // ---------- ROOM 7 ----------
     {
       type: "translate", 
-      question: "Find the hidden six-letter word in this creepy note:",
+      question: "Complete the passive voice sentence:",
       paragraph:
-        "The candle flickered, casting long, dancing figures on the wall. The air was frigid, and a sense of dread crept into my heart. I could almost hear a faint, spectral whisper right behind me.",
-      answer: "spirit",
-      hint: "It's another word for a ghost or phantom.",
+        "The experiment ___ (conduct) in the abandoned laboratory last night.",
+      answer: "was conducted",
+      hint: "Past passive: was + past participle.",
     },
 
     // ---------- ROOM 8 ----------
     {
-      type: "findword", 
-      question: "Find the hidden six-letter word in this creepy note:",
+      type: "jumble", 
+      question: "Put the words in the correct passive voice order:",
       paragraph:
-        "The candle flickered, casting long, dancing figures on the wall. The air was frigid, and a sense of dread crept into my heart. I could almost hear a faint, spectral whisper right behind me.",
-      answer: "spirit",
-      hint: "It's another word for a ghost or phantom.",
+        "the / was / discovered / formula / old",
+      answer: "the old formula was discovered",
+      hint: "Start with 'the old formula' + passive structure.",
     },
   ];
 
@@ -178,7 +178,9 @@ document.addEventListener("DOMContentLoaded", () => {
       "theme-special",
       "theme-special2",
       "theme-room3",
-      "theme-room4"
+      "theme-room4",
+      "theme-room7",
+      "theme-room8",
     );
 
     if (index === 2) {
@@ -193,6 +195,12 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (index === 5) {
       // Room 6 (Original theme-special2)
       body.classList.add("theme-special2");
+    } else if (index === 6) {
+      // Room 4: Estética Monstruo
+      body.classList.add("theme-room7");
+    } else if (index === 7) {
+      // Room 4: Estética Monstruo
+      body.classList.add("theme-room8");
     }
 
     if (index >= rooms.length) {
@@ -218,11 +226,11 @@ document.addEventListener("DOMContentLoaded", () => {
     multipleChoiceEl.innerHTML = "";
     checkAnswerBtn.classList.remove("hidden");
 
-    if (room.type === "findword") {
+    // Mostrar paragraph si existe SIN importar el tipo
+    if (room.paragraph) {
       paragraphEl.textContent = room.paragraph;
       paragraphEl.classList.remove("hidden");
     }
-
     else if (room.type === "multiple") {
       answerInput.classList.add("hidden");
       checkAnswerBtn.classList.add("hidden");

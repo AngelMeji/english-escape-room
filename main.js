@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // ---------- ROOM 1 ----------
         {
             type: "translate",
-            question: "Translate the bloody message on the wall: 'Sombra'",
-            answer: "shadow",
+            question: "Rewrite the sentence using the passive voice: “People should follow the instructions carefully.”",
+            answer: "The instructions should be followed carefully",
             hint: "It follows you but you can never catch it.",
         },
 
@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             type: "jumble",
             question:
-                "Unscramble the letters to reveal the haunting sound: T E L S K O N E",
-            answer: "skeleton",
+                "The homework can be finished tomorrow. This sentence is in the passive voice with a modal verb. True or False?",
+            answer: "True",
             hint: "It's a framework of bones.",
         },
 
@@ -473,5 +473,19 @@ document.addEventListener("DOMContentLoaded", () => {
         flickerOverlay.classList.add("hidden");
         fogLayer.classList.remove("hidden");
         playerNameInput.value = "";
+
+        // Reset theme to Start Screen theme (Dungeon)
+        document.body.classList.remove(
+            "theme-dungeon",
+            "theme-special",
+            "theme-special2",
+            "theme-room3",
+            "theme-room4",
+            "theme-room7",
+            "theme-room8",
+            "theme-room9",
+            "theme-room10"
+        );
+        document.body.classList.add("theme-dungeon");
     });
 });

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"> <!-- Idioma principal del documento -->
+
 <head>
     <meta charset="UTF-8"> <!-- Soporte para caracteres especiales -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividad en móviles -->
@@ -8,12 +9,16 @@
     <!-- Enlace a la hoja de estilos -->
     <link rel="stylesheet" href="./styles.css">
 </head>
-<body>
+
+<body class="theme-dungeon">
     <!-- Capa visual para efecto de niebla -->
     <div class="fog-layer"></div>
 
     <!-- Capa usada para efecto de parpadeo en pantalla -->
     <div class="flicker-overlay hidden"></div>
+
+    <!-- Capa de transición negra entre habitaciones -->
+    <div id="transition-overlay"></div>
 
     <!-- ================================
          PANTALLA INICIAL
@@ -27,7 +32,8 @@
             </p>
 
             <!-- Entrada del nombre del jugador -->
-            <input type="text" id="player-name-input" placeholder="Enter your name, prisoner..." aria-label="Player Name">
+            <input type="text" id="player-name-input" placeholder="Enter your name, prisoner..."
+                aria-label="Player Name">
 
             <!-- Botón para iniciar el juego -->
             <button id="start-button">Enter If You Dare</button>
@@ -131,6 +137,7 @@
     <audio id="background-music" src="sounds/background.mp3" loop preload="auto"></audio>
 
     <!-- Archivo principal de JavaScript -->
-    <script type="module" src="./main.js"></script>
+    <script src="./main.js"></script>
 </body>
+
 </html>
